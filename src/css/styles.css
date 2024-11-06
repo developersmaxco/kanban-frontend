@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -10,9 +10,24 @@
 body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background: gray;
+    background: white;
+}
+
+/* Contêiner do Título Centralizado */
+.kanban-title-main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.kanban-title-main {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
 }
 
 .kanban {
@@ -48,23 +63,13 @@ body {
     left: 0;
 }
 
-.kanban-column[data-id="1"]::after {
-    background-color: #d573b6;
-}
-
-.kanban-column[data-id="2"]::after {
-    background-color: #03011a;
-}
-
-.kanban-column[data-id="3"]::after {
-    background-color: #03011a;
-}
-
-.kanban-column[data-id="4"]::after {
-    background-color: #03011a;
-}
-
-.kanban-column[data-id="5"]::after {
+.kanban-column[data-id="1"]::after,
+.kanban-column[data-id="2"]::after,
+.kanban-column[data-id="3"]::after,
+.kanban-column[data-id="4"]::after,
+.kanban-column[data-id="5"]::after,
+.kanban-column[data-id="6"]::after,
+.kanban-column[data-id="7"]::after {
     background-color: #03011a;
 }
 
@@ -105,7 +110,57 @@ body {
     padding: 10px;
     box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s; /* Animações para o efeito de hover */
 }
+.kanban-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kanban-card .card-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #555;
+    margin-top: 8px;
+}
+
+.kanban-card .fa-clock {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Efeito de hover */
+.kanban-card:hover {
+    transform: scale(1.02); /* Aumenta levemente o tamanho */
+    box-shadow: 0px 8px 15px -3px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+}
+.save-task-btn {
+    background-color: rgb(68, 102, 255); /* Azul especificado */
+    color: #ffffff; /* Cor do texto */
+    padding: 6px 12px; /* Padding para ajustar o tamanho */
+    font-size: 14px; /* Tamanho da fonte */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave no hover */
+}
+
+/* Hover para o botão */
+.save-task-btn:hover {
+    background-color: rgb(50, 82, 204); /* Um tom mais escuro de azul no hover */
+}
+
 
 .badge {
     color: #ffffff;
@@ -116,15 +171,15 @@ body {
 }
 
 .badge.high {
-    background-color: #d573b6;
+    background-color: #d64141;
 }
 
 .badge.medium {
-    background-color: #fea065;
+    background-color: rgb(207, 148, 10);
 }
 
 .badge.low {
-    background-color: #92a5fb;
+    background-color: rgb(68, 102, 255);
 }
 
 .card-infos {
@@ -170,4 +225,114 @@ body {
 *::-webkit-scrollbar-thumb {
     background-color: #4b5563;
     border-radius: 20px;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Modal escondido inicialmente */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 500px; /* Aumente a largura do modal */
+    max-width: 90%; /* Para ajustar em telas menores */
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-content textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    resize: vertical; /* Permite que o usuário ajuste a altura */
+    background-color: #f9f9f9;
+}
+
+.close {
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+/* Section for Dropdowns */
+.modal-section {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.modal-section select {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+.modal-section select,
+.modal-content input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Botão de excluir no card */
+.delete-card {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-card i {
+    color: #888;
+}
+
+.modal-btn {
+    padding: 8px 12px;
+    background-color: #0066ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modal-btn:hover {
+    background-color: #0052cc;
+}
+
+.create-task-btn {
+    background-color: #0066ff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.create-task-btn:hover {
+    background-color: #0052cc;
 }

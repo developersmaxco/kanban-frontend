@@ -9,12 +9,17 @@
     <title>Kanban</title>
 </head>
 <body>
+    <div class="kanban-title-main-container">
+        <div class="kanban-title-main">Kanban de Licitações</div>
+    </div>
     <main class="kanban">
+       
+
         <!-- COLUMN 1 -->
         <div class="kanban-column" data-id="1">
             <div class="kanban-title">
                 <h2>
-                    Pendente
+                    Identificação de objeto
                 </h2>
 
                 <button class="add-card">
@@ -59,7 +64,7 @@
         <div class="kanban-column" data-id="2">
             <div class="kanban-title">
                 <h2>
-                    Em front-end
+                    Republicação
                 </h2>
 
                 <button class="add-card">
@@ -76,7 +81,7 @@
                     </div>
 
                     <p class="card-title">
-                        Revisar documento do projeto
+                        Republicação
                     </p>
 
                     <div class="card-infos">
@@ -104,7 +109,7 @@
         <div class="kanban-column" data-id="3">
             <div class="kanban-title">
                 <h2>
-                    Em back-end
+                    Cadastramento de proposta
                 </h2>
 
                 <button class="add-card">
@@ -149,7 +154,7 @@
         <div class="kanban-column" data-id="4">
             <div class="kanban-title">
                 <h2>
-                    Em teste
+                    Etapa de lances
                 </h2>
 
                 <button class="add-card">
@@ -194,7 +199,7 @@
         <div class="kanban-column" data-id="5">
             <div class="kanban-title">
                 <h2>
-                    Concluído
+                    Acompanhamento 
                 </h2>
 
                 <button class="add-card">
@@ -234,8 +239,120 @@
                 </div>
             </div>
         </div>
-    </main>
+        <!-- COLUMN 6 -->
+<div class="kanban-column" data-id="6">
+    <div class="kanban-title">
+        <h2>
+            Homologado
+        </h2>
+        <button class="add-card">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
 
+    <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+            <div class="badge medium">
+                <span>
+                    Média prioridade
+                </span>
+            </div>
+
+            <p class="card-title">
+                Revisar código final
+            </p>
+
+            <div class="card-infos">
+                <div class="card-icons">
+                    <p>
+                        <i class="fa-regular fa-comment"></i>
+                        2
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-paperclip"></i>
+                        3
+                    </p>
+                </div>
+                <div class="user">
+                    <img src="src/images/avatar4.png" alt="Avatar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COLUMN 7 -->
+<div class="kanban-column" data-id="7">
+    <div class="kanban-title">
+        <h2>
+            Solicitação de BID
+        </h2>
+        <button class="add-card">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="kanban-cards">
+        <div class="kanban-card" draggable="true">
+            <div class="badge low">
+                <span>
+                    Baixa prioridade
+                </span>
+            </div>
+
+            <p class="card-title">
+                Projeto finalizado
+            </p>
+
+            <div class="card-infos">
+                <div class="card-icons">
+                    <p>
+                        <i class="fa-regular fa-comment"></i>
+                        0
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-paperclip"></i>
+                        0
+                    </p>
+                </div>
+                <div class="user">
+                    <img src="src/images/avatar5.png" alt="Avatar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </main>
+ <!-- Modal para adicionar tarefas -->
+ <div id="taskModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <input type="text" placeholder="Título da Tarefa">
+        <div class="modal-section">
+            <select>
+                <option value="1">Identificação de objeto</option>
+                <option value="2">Republicação</option>
+                <option value="3">Cadastramento de proposta</option>
+                <option value="4">Etapa de lances</option>
+                <option value="5">Acompanhamento</option>
+                <option value="6">Homologado</option>
+                <option value="7">Solicitação de BID</option>
+            </select>
+            <select>
+                <option value="low">Baixa prioridade</option>
+                <option value="medium">Média prioridade</option>
+                <option value="high">Alta prioridade</option>
+            </select>
+        </div>
+        <textarea placeholder="Descrição da Tarefa" rows="4"></textarea>
+        <button class="save-task-btn">Salvar Tarefa</button>
+    </div>
+</div>
     <script src="src/javascript/script.js"></script>
 </body>
 </html>
