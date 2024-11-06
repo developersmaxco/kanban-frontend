@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #a5b4fc, #93c5fd);
+    background: gray;
 }
 
 .kanban {
@@ -53,19 +53,19 @@ body {
 }
 
 .kanban-column[data-id="2"]::after {
-    background-color: #fea065;
+    background-color: #03011a;
 }
 
 .kanban-column[data-id="3"]::after {
-    background-color: #fed565;
+    background-color: #03011a;
 }
 
 .kanban-column[data-id="4"]::after {
-    background-color: #92a5fb;
+    background-color: #03011a;
 }
 
 .kanban-column[data-id="5"]::after {
-    background-color: #6ed0bc;
+    background-color: #03011a;
 }
 
 .kanban-title {
@@ -168,6 +168,6 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #b7d3fb;
+    background-color: #4b5563;
     border-radius: 20px;
 }
